@@ -1,4 +1,4 @@
-package br.com.mapa2.modelo;
+package br.com.mapa2.modelo.dto;
 
 public class Usuario {
 	private Integer id;

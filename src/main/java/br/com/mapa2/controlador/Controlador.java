@@ -1,6 +1,6 @@
 package br.com.mapa2.controlador;
 
-import br.com.mapa2.modelo.Usuario;
+import br.com.mapa2.modelo.dto.Usuario;
 import br.com.mapa2.modelo.Modelo;
 import br.com.mapa2.visao.Visao;
 

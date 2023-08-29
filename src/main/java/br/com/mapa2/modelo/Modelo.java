@@ -1,29 +1,23 @@
 package br.com.mapa2.modelo;
 
-import br.com.mapa2.modelo.banco.dao.UsuarioDAO;
 import br.com.mapa2.controlador.Controlador;
+import br.com.mapa2.modelo.dto.Usuario;
 
 import java.sql.SQLException;
 
 public class Modelo {
-	private UsuarioDAO usuarioDAO;
+	private UsuarioModelo usuarioModelo;
 
 	public Modelo() {
-		this.usuarioDAO = new UsuarioDAO();
+		this.usuarioModelo = new UsuarioModelo();
 	}
 
 	public void cadastrarUsuario(Usuario usuario) throws SQLException {
-		usuarioDAO.salvar(usuario);
+		usuarioModelo.cadastrarUsuario(usuario);
 	}
 
 	public boolean login(Controlador.LoginDTO dto) throws SQLException {
-		String senha = usuarioDAO.obterSenhaPorLogin(dto.getLogin());
-		
-		if (dto.getSenha().equals(senha)) {
-			return true;
-		}
-		
-		return false;
+		return usuarioModelo.login(dto);
 	}
 
 }
