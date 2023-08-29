@@ -5,18 +5,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-	private Connection CONNECTION;
+	private Connection connection;
 	   
 	   public Connection obterConexao() {
-		   if (CONNECTION == null) {
+		   if (connection == null) {
 			   try {
-				   this.CONNECTION = DriverManager.getConnection("jdbc:mariadb://localhost:3306/mapa", "root", "3242");
+				   this.connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/mapa", "root", "3242");
 			   } catch (SQLException e) {
 				   throw new RuntimeException(e);
 			   }
 		   }
 
-		   return CONNECTION;
+		   return connection;
 	   }
 
 }
