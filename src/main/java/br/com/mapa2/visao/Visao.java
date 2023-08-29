@@ -25,10 +25,10 @@ public class Visao extends JFrame{
 	}
 
 	private void configurarTela() {
-		getContentPane().setBackground(Color.magenta);
-		getContentPane().setLayout(new BorderLayout());
-		setSize(1420, 800);
-		setVisible(true);
+		super.getContentPane().setBackground(Color.magenta);
+		super.getContentPane().setLayout(new BorderLayout());
+		super.setSize(1420, 800);
+		super.setVisible(true);
 	}
 	
 	private void atualizarTela() {
@@ -49,7 +49,6 @@ public class Visao extends JFrame{
 	public TelaCadastro getTelaCadastro() {
 		return telaCadastro;
 	}
-
 
 	public TelaPrincipal getTelaPrincipal() {
 		return telaPrincipal;

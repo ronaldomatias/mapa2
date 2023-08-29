@@ -11,7 +11,7 @@ public class TelaLogin extends TelaBase {
 	private static final long serialVersionUID = 1L;
 	JTextField txtLogin;
 	JTextField txtSenha;
-	private JButton btnEntrar;
+	private JButton btnLogin;
 	private JButton btnCadastro;
 
 	public TelaLogin() {
@@ -48,17 +48,17 @@ public class TelaLogin extends TelaBase {
 		txtSenha.setBounds(570, 310, 300, 30);
 		txtSenha.setVisible(true);
 
-		btnEntrar = new JButton("ENTRAR");
-		btnEntrar.setForeground(Color.black);
-		btnEntrar.setFont(new Font("Comic Sans", Font.BOLD, 15));
-		btnEntrar.setBackground(Color.green);
-		btnEntrar.setBounds(420, 400, 170, 40);
-		btnEntrar.setVisible(true);
+		btnLogin = new JButton("ENTRAR");
+		btnLogin.setForeground(Color.black);
+		btnLogin.setFont(new Font("Comic Sans", Font.BOLD, 15));
+		btnLogin.setBackground(Color.green);
+		btnLogin.setBounds(420, 400, 170, 40);
+		btnLogin.setVisible(true);
 
 		btnCadastro = new JButton("CADASTRAR NOVO USUÁRIO");
 		btnCadastro.setForeground(Color.black);
 		btnCadastro.setFont(new Font("Comic Sans", Font.BOLD, 15));
-		btnCadastro.setBackground(Color.green);
+		btnCadastro.setBackground(Color.CYAN);
 		btnCadastro.setBounds(620, 400, 300, 40);
 		btnCadastro.setVisible(true);
 
@@ -66,13 +66,13 @@ public class TelaLogin extends TelaBase {
 		super.add(lblSenha);
 		super.add(txtLogin);
 		super.add(txtSenha);
-		super.add(btnEntrar);
+		super.add(btnLogin);
 		super.add(btnCadastro);
 	}
 
 
-	public JButton getBtnEntrar() {
-		return btnEntrar;
+	public JButton getBtnLogin() {
+		return btnLogin;
 	}
 
 	public JButton getBtnCadastro() {

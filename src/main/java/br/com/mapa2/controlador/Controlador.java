@@ -15,13 +15,13 @@ public class Controlador {
 	public Controlador(Visao visao, Modelo modelo) {
 		this.visao = visao;
 		this.modelo = modelo;
-		this.visao.getTelaLogin().getBtnEntrar().addActionListener(new AcaoTelaLoginBtnEntrar());
+		this.visao.getTelaLogin().getBtnLogin().addActionListener(new AcaoTelaLoginBtnLogin());
 		this.visao.getTelaLogin().getBtnCadastro().addActionListener(new AcaoTelaLoginBtnCadastro());
 		this.visao.getTelaCadastro().getBtnSalvar().addActionListener(new AcaoTelaCadastroBtnSalvar());
 	}
 
 
-	class AcaoTelaLoginBtnEntrar implements ActionListener {
+	class AcaoTelaLoginBtnLogin implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -29,8 +29,8 @@ public class Controlador {
 				boolean loginSucesso = modelo.login(dto);
 
 				if (loginSucesso) {
-					JOptionPane.showMessageDialog(visao, "Acesso autorizado!", null, JOptionPane.INFORMATION_MESSAGE);
 					visao.mostrarTela(visao.getTelaPrincipal());
+					JOptionPane.showMessageDialog(visao, "Acesso autorizado!", null, JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					JOptionPane.showMessageDialog(visao, "Login ou senha incorretos!", null, JOptionPane.INFORMATION_MESSAGE);
 				}

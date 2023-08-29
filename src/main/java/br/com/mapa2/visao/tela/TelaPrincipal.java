@@ -20,11 +20,14 @@ public class TelaPrincipal extends TelaBase {
 
 	@Override
 	protected void montarTela() {
-		JTextField txtLogin = new JTextField(7);
-		txtLogin.setBounds(570, 210, 300, 30);
-		txtLogin.setVisible(true);
+		JLabel txtBemVindo = new JLabel("SEJA BEM-VINDO");
+		txtBemVindo.setFont(new Font("Verdana", Font.BOLD, 50));
+		txtBemVindo.setBackground(Color.WHITE);
+		txtBemVindo.setForeground(Color.GREEN);
+		txtBemVindo.setBounds(700, 210, 500, 250);
+		txtBemVindo.setVisible(true);
 
-		super.add(txtLogin);
+		super.add(txtBemVindo);
 	}
 
 }
