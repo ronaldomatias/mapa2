@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class UsuarioDAO extends BaseDAO {
 
-	public void salvar(Usuario usuario) throws SQLException {
+	public boolean salvar(Usuario usuario) throws SQLException {
 		Connection conexao = super.getConnection();
 
 		PreparedStatement ps = conexao.prepareStatement(
@@ -18,6 +18,8 @@ public class UsuarioDAO extends BaseDAO {
 		ps.execute();
 		ps.close();
 		conexao.close();
+
+		return true;
 	}
 
 	public String obterSenhaPorLogin(String login) throws SQLException {
@@ -37,6 +39,26 @@ public class UsuarioDAO extends BaseDAO {
 		}
 
 		return null;
+	}
+
+	public boolean loginExiste(String login) throws SQLException {
+		Connection conexao = super.getConnection();
+
+		PreparedStatement ps = conexao.prepareStatement("SELECT COUNT(*) from usuario WHERE login = ?;");
+		ps.setString(1, login);
+
+		ResultSet resultSet = ps.executeQuery();
+
+		ps.execute();
+		ps.close();
+		conexao.close();
+
+		Integer count = 0;
+		if (resultSet.next()) {
+			count = resultSet.getInt(1);
+		}
+
+		return count > 0;
 	}
 
 }

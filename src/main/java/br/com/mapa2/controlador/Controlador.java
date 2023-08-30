@@ -20,12 +20,12 @@ public class Controlador {
 		this.visao.getTelaCadastro().getBtnSalvar().addActionListener(new AcaoTelaCadastroBtnSalvar());
 	}
 
-
 	class AcaoTelaLoginBtnLogin implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
 				LoginDTO dto = new LoginDTO(visao.getTelaLogin().getTxtLogin().getText(), visao.getTelaLogin().getTxtSenha().getText());
+
 				boolean loginSucesso = modelo.login(dto);
 
 				if (loginSucesso) {
@@ -59,10 +59,15 @@ public class Controlador {
 				String login = visao.getTelaCadastro().getTxtLogin().getText();
 				String senha = visao.getTelaCadastro().getTxtSenha().getText();
 				String email = visao.getTelaCadastro().getTxtEmail().getText();
-				modelo.cadastrarUsuario(new Usuario(nome, login, senha, email));
 
-				visao.mostrarTela(visao.getTelaLogin());
-				JOptionPane.showMessageDialog(visao, "Cadastro efetuado com sucesso!", null, JOptionPane.INFORMATION_MESSAGE);
+				boolean cadastroSucesso = modelo.cadastrarUsuario(new Usuario(nome, login, senha, email));
+
+				if (cadastroSucesso) {
+					visao.mostrarTela(visao.getTelaLogin());
+					JOptionPane.showMessageDialog(visao, "Cadastro efetuado com sucesso!", null, JOptionPane.INFORMATION_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(visao, "Login já existe. Escolha outro!", null, JOptionPane.WARNING_MESSAGE);
+				}
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}

@@ -1,6 +1,5 @@
 package br.com.mapa2.modelo;
 
-import br.com.mapa2.controlador.Controlador;
 import br.com.mapa2.modelo.banco.dao.UsuarioDAO;
 import br.com.mapa2.modelo.dto.Usuario;
 
@@ -13,18 +12,12 @@ public class UsuarioModelo {
 		this.usuarioDAO = new UsuarioDAO();
 	}
 
-	public void cadastrarUsuario(Usuario dto) throws SQLException {
-		usuarioDAO.salvar(dto);
-	}
-
-	public boolean login(Controlador.LoginDTO dto) throws SQLException {
-		String senha = usuarioDAO.obterSenhaPorLogin(dto.getLogin());
-
-		if (dto.getSenha().equals(senha)) {
-			return true;
+	public boolean salvar(Usuario dto) throws SQLException {
+		if (usuarioDAO.loginExiste(dto.getLogin())) {
+			return false;
 		}
 
-		return false;
+		return usuarioDAO.salvar(dto);
 	}
 
 }

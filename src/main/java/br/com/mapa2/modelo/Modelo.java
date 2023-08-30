@@ -7,17 +7,19 @@ import java.sql.SQLException;
 
 public class Modelo {
 	private UsuarioModelo usuarioModelo;
+	private LoginModelo loginModelo;
 
 	public Modelo() {
 		this.usuarioModelo = new UsuarioModelo();
+		this.loginModelo = new LoginModelo();
 	}
 
-	public void cadastrarUsuario(Usuario usuario) throws SQLException {
-		usuarioModelo.cadastrarUsuario(usuario);
+	public boolean cadastrarUsuario(Usuario usuario) throws SQLException {
+		return usuarioModelo.salvar(usuario);
 	}
 
 	public boolean login(Controlador.LoginDTO dto) throws SQLException {
-		return usuarioModelo.login(dto);
+		return loginModelo.login(dto);
 	}
 
 }
