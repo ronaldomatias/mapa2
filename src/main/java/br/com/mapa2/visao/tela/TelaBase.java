@@ -11,5 +11,7 @@ public abstract class TelaBase extends JPanel {
 
 	protected abstract void configurarTela();
 
-	protected abstract void montarTela();
+	public abstract void montarTela();
+
+	public abstract void reset();
 }

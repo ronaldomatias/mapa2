@@ -1,15 +1,15 @@
 package br.com.mapa2.visao;
 
+import br.com.mapa2.visao.tela.TelaBase;
 import br.com.mapa2.visao.tela.TelaCadastro;
 import br.com.mapa2.visao.tela.TelaLogin;
 import br.com.mapa2.visao.tela.TelaPrincipal;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.*;
 
 
-public class Visao extends JFrame{
+public class Visao extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private TelaLogin telaLogin;
 	private TelaCadastro telaCadastro;
@@ -20,26 +20,27 @@ public class Visao extends JFrame{
 		this.telaCadastro = new TelaCadastro();
 		this.telaPrincipal = new TelaPrincipal();
 
-		this.configurarTela();
+		this.configurarVisao();
 		this.mostrarTela(telaLogin);
 	}
 
-	private void configurarTela() {
+	private void configurarVisao() {
 		super.getContentPane().setBackground(Color.magenta);
 		super.getContentPane().setLayout(new BorderLayout());
 		super.setSize(1420, 800);
 		super.setVisible(true);
 	}
 	
-	private void atualizarTela() {
+	private void atualizarVisao() {
 		this.getContentPane().revalidate();
 		this.getContentPane().repaint();
 	}
 
-	public void mostrarTela(JPanel tela) {
+	public void mostrarTela(TelaBase tela) {
+		tela.reset();
 		this.getContentPane().removeAll();
 		this.getContentPane().add(tela);
-		this.atualizarTela();
+		this.atualizarVisao();
 	}
 
 	public TelaLogin getTelaLogin() {

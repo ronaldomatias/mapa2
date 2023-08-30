@@ -18,6 +18,8 @@ public class Controlador {
 		this.visao.getTelaLogin().getBtnLogin().addActionListener(new AcaoTelaLoginBtnLogin());
 		this.visao.getTelaLogin().getBtnCadastro().addActionListener(new AcaoTelaLoginBtnCadastro());
 		this.visao.getTelaCadastro().getBtnSalvar().addActionListener(new AcaoTelaCadastroBtnSalvar());
+		this.visao.getTelaCadastro().getBtnVoltar().addActionListener(new AcaoTelaCadastroBtnVoltar());
+		this.visao.getTelaPrincipal().getBtnVoltar().addActionListener(new AcaoTelaPrincipalBtnVoltar());
 	}
 
 	class AcaoTelaLoginBtnLogin implements ActionListener {
@@ -68,6 +70,28 @@ public class Controlador {
 				} else {
 					JOptionPane.showMessageDialog(visao, "Login já existe. Escolha outro!", null, JOptionPane.WARNING_MESSAGE);
 				}
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	class AcaoTelaPrincipalBtnVoltar implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				visao.mostrarTela(visao.getTelaLogin());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	class AcaoTelaCadastroBtnVoltar implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				visao.mostrarTela(visao.getTelaLogin());
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
