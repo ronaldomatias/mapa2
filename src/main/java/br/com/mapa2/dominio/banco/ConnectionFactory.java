@@ -1,4 +1,4 @@
-package br.com.mapa2.modelo.banco;
+package br.com.mapa2.dominio.banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,6 +1,6 @@
-package br.com.mapa2.modelo.banco.dao;
+package br.com.mapa2.dominio.banco.dao;
 
-import br.com.mapa2.modelo.dto.Usuario;
+import br.com.mapa2.dominio.dto.UsuarioDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +9,8 @@ import java.sql.SQLException;
 
 public class UsuarioDAO extends BaseDAO {
 
-	public boolean salvar(Usuario usuario) throws SQLException {
-		Connection conexao = super.getConnection();
+	public boolean salvar(UsuarioDTO usuario) throws SQLException {
+		Connection conexao = super.obterConexao();
 
 		PreparedStatement ps = conexao.prepareStatement(
 				"INSERT INTO usuario (nome, login, senha, email) VALUES ('" + usuario.getNome() + "', '" + usuario.getLogin() + "', '" + usuario.getSenha() + "', '" + usuario.getEmail() + "');");
@@ -23,7 +23,7 @@ public class UsuarioDAO extends BaseDAO {
 	}
 
 	public String obterSenhaPorLogin(String login) throws SQLException {
-		Connection conexao = super.getConnection();
+		Connection conexao = super.obterConexao();
 
 		PreparedStatement ps = conexao.prepareStatement("SELECT (senha) from usuario WHERE login = ?;");
 		ps.setString(1, login);
@@ -42,7 +42,7 @@ public class UsuarioDAO extends BaseDAO {
 	}
 
 	public boolean loginExiste(String login) throws SQLException {
-		Connection conexao = super.getConnection();
+		Connection conexao = super.obterConexao();
 
 		PreparedStatement ps = conexao.prepareStatement("SELECT COUNT(*) from usuario WHERE login = ?;");
 		ps.setString(1, login);

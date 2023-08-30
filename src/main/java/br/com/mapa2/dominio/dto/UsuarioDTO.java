@@ -1,13 +1,13 @@
-package br.com.mapa2.modelo.dto;
+package br.com.mapa2.dominio.dto;
 
-public class Usuario {
+public class UsuarioDTO {
 	private Integer id;
 	private String email;
 	private String login;
 	private String senha;
 	private String nome;
 
-	public Usuario(String nome, String login, String senha, String email) {
+	public UsuarioDTO(String nome, String login, String senha, String email) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;

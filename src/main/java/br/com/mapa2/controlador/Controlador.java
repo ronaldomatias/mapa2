@@ -1,6 +1,6 @@
 package br.com.mapa2.controlador;
 
-import br.com.mapa2.modelo.dto.Usuario;
+import br.com.mapa2.dominio.dto.UsuarioDTO;
 import br.com.mapa2.modelo.Modelo;
 import br.com.mapa2.visao.Visao;
 
@@ -60,7 +60,7 @@ public class Controlador {
 				String senha = visao.getTelaCadastro().getTxtSenha().getText();
 				String email = visao.getTelaCadastro().getTxtEmail().getText();
 
-				boolean cadastroSucesso = modelo.cadastrarUsuario(new Usuario(nome, login, senha, email));
+				boolean cadastroSucesso = modelo.cadastrarUsuario(new UsuarioDTO(nome, login, senha, email));
 
 				if (cadastroSucesso) {
 					visao.mostrarTela(visao.getTelaLogin());

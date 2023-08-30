@@ -1,7 +1,7 @@
 package br.com.mapa2.modelo;
 
 import br.com.mapa2.controlador.Controlador;
-import br.com.mapa2.modelo.banco.dao.UsuarioDAO;
+import br.com.mapa2.dominio.banco.dao.UsuarioDAO;
 
 import java.sql.SQLException;
 
